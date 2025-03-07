@@ -195,6 +195,20 @@ document.querySelector("form").addEventListener("submit", function (e) {
         alert("Semua kolom wajib diisi!");
     }
 });
+const form = document.querySelector("form");
+if (form) {
+    form.addEventListener("submit", function (e) {
+        const nama = document.querySelector('input[type="text"]').value;
+        const email = document.querySelector('input[type="email"]').value;
+        const password = document.querySelector('input[type="password"]').value;
+
+        if (!nama || !email || !password) {
+            e.preventDefault();
+            alert("Semua kolom wajib diisi!");
+        }
+    });
+}
+
 
 
 
