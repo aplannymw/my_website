@@ -185,5 +185,16 @@ document.addEventListener("DOMContentLoaded", () => {
         container.appendChild(link);
     }
 });
+document.querySelector("form").addEventListener("submit", function (e) {
+    const nama = document.querySelector('input[type="text"]').value;
+    const email = document.querySelector('input[type="email"]').value;
+    const password = document.querySelector('input[type="password"]').value;
+
+    if (!nama || !email || !password) {
+        e.preventDefault(); // Mencegah pengiriman form
+        alert("Semua kolom wajib diisi!");
+    }
+});
+
 
 
