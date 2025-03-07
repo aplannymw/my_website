@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Upload & Gallery</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="fetch_data_example.js" defer></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <h1>aplannymw</h1>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="tentang.html">Tentang</a></li>
+                <li><a href="project.html">Project</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="logout.html">Logout</a></li>
+                <li>
+                    <a href="https://aplannymw.github.io/my_website/" target="_blank">
+                        <i class="fa fa-github"></i> My Website
+                    </a>
+            </ul>
+        </nav>
+    </header>
+      <!-- Tempat untuk link GitHub Pages -->
+      <div id="github-link"></div>
+
+      <!-- Tempat untuk daftar repositori -->
+      <div id="repos-container"></div>
+
+    <!-- Form hanya untuk admin -->
+    <section class="upload-container">
+        <h2>Upload Gambar (Admin Saja)</h2>
+        <form action="upload_handler.php" method="POST" enctype="multipart/form-data">
+            <label for="project-name">Nama Gambar:</label>
+            <input type="text" id="project-name" name="project_name" required>
+
+            <label for="project-image">Upload Gambar:</label>
+            <input type="file" id="project-image" name="project_image" accept="image/*" required>
+
+            <button type="submit">Upload</button>
+        </form>
+    </section>
+    <section class="github-pages">
+        <h2>Kunjungi Website Kami</h2>
+        <a href="https://aplannymw.github.io/my_website/" target="_blank" class="cta-button">
+            Lihat Website
+        </a>
+    </section>
+    
+
+    <!-- Galeri Gambar -->
+    <section class="gallery-container">
+        <h2>Galeri Gambar</h2>
+        <div class="gallery">
+            <!-- PHP untuk menampilkan gambar yang sudah diunggah -->
+            <?php
+            $images = glob("uploads/*.{jpg,png,jpeg,gif}", GLOB_BRACE);
+            foreach ($images as $image) {
+                echo "<div class='gallery-item'>";
+                echo "<img src='$image' alt='Gambar'>";
+                echo "</div>";
+            }
+            ?>
+        </div>
+    </section>
+    <footer>
+        <p>&copy;2025 aplannymw. Semua hak dilindungi.</p>
+        <div class="social-icons">
+            <a href="https://wa.me/nomorAnda" target="_blank"><i class="fa fa-whatsapp"></i>082238594968</a>
+            <a href="https://facebook.com" target="_blank"><i class="fa fa-facebook"></i>anggenack mw</a>
+            <a href="https://instagram.com" target="_blank"><i class="fa fa-instagram"></i>aplannymw</a>
+            <a href="https://youtube.com" target="_blank"><i class="fa fa-youtube"></i>aplannymw</a>
+            <a href="https://aplannymw.github.io/my_website/" target="_blank">
+                <i class="fa fa-github"></i> My Website
+            </a>
+        </div>
+    </footer>
+</body>
+</html>

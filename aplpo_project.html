@@ -3,53 +3,59 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Upload Project</title>
+    <title>Project Gallery</title>
     <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
+    <script defer src="script.js"></script>
 </head>
 <body>
-
     <header>
         <nav>
-            <h1>aplannymw</h1>
+            <h1>Dashboard</h1>
             <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="tentang.html">Tentang</a></li>
-                <li><a href="project.html">Project</a></li>
-                <li><a href="contact.html">Contact</a></li>
-                <li><a href="logout.html">Logout</a></li>
+                <li><a href="index.html">home</a></li>
+                <li><a href="tentang.html">tentang</a></li>
+                <li><a href="project.html">project</a></li>
+                <li><a href="contact.html">contact</a></li>
+                <li><a href="index.html">Logout</a></li>
+                <li>
+                    <a href="https://aplannymw.github.io/my_website/" target="_blank">
+                        <i class="fa fa-github"></i> My Website
+                    </a>
+                </li>
             </ul>
         </nav>
     </header>
-    <section class="upload-container">
-        <h2>Upload Project</h2>
-        <form action="upload_handler.php" method="POST" enctype="multipart/form-data">
-            <label for="project-name">Nama Project:</label>
-            <input type="text" id="project-name" name="project_name" required>
+    <!-- Tempat untuk link GitHub Pages -->
+<div id="github-link"></div>
 
-            <label for="project-description">Deskripsi Project:</label>
-            <textarea id="project-description" name="project_description" rows="4" required></textarea>
+<!-- Tempat untuk daftar repositori -->
+<div id="repos-container"></div>
 
-            <label for="project-image">Upload Gambar Project:</label>
-            <input type="file" id="project-image" name="project_image" accept="image/*" required>
 
-            <button type="submit">Upload</button>
-        </form>
-    </section>
-    
-    <!-- Tombol untuk melihat daftar project yang sudah diunggah -->
-    <a href="cekclick_project.php" class="cta-button">Lihat Project</a>
-    
+    <main>
+        <section class="upload-container">
+            <h2>Upload Your Project</h2>
+            <form id="upload-form">
+                <label for="project-name">Project Name:</label>
+                <input type="text" id="project-name" name="project_name" required>
 
-    <footer>
-        <p>&copy;2025 aplannymw. Semua hak dilindungi.</p>
-        <div class="social-icons">
-            <a href="https://wa.me/nomorAnda" target="_blank"><i class="fa fa-whatsapp"></i></a>
-            <a href="https://facebook.com" target="_blank"><i class="fa fa-facebook"></i></a>
-            <a href="https://instagram.com" target="_blank"><i class="fa fa-instagram"></i></a>
-            <a href="https://youtube.com" target="_blank"><i class="fa fa-youtube"></i></a>
-        </div>
+                <label for="project-description">Project Description:</label>
+                <textarea id="project-description" name="project_description" rows="4" required></textarea>
+
+                <label for="project-image">Upload Project Image:</label>
+                <input type="file" id="project-image" name="project_image" accept="image/*" required>
+
+                <button type="button" id="upload-button">Upload</button>
+            </form>
+        </section>
+
+        <section id="projects" class="project-list">
+            <h3>Project Gallery</h3>
+            <div id="project-gallery">
+                <!-- Uploaded projects will appear here -->
+            </div>
+        </section>
+    </main> 
         <footer>
             <p>&copy;2025 aplannymw. Semua hak dilindungi.</p>
             <div class="social-icons">
@@ -57,6 +63,9 @@
                 <a href="https://facebook.com" target="_blank"><i class="fa fa-facebook"></i>anggenack mw</a>
                 <a href="https://instagram.com" target="_blank"><i class="fa fa-instagram"></i>aplannymw</a>
                 <a href="https://youtube.com" target="_blank"><i class="fa fa-youtube"></i>aplannymw</a>
+                <a href="https://aplannymw.github.io/my_website/" target="_blank">
+                    <i class="fa fa-github"></i> My Website
+                </a>
             </div>
         </footer>
 </body>
